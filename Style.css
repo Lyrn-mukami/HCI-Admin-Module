@@ -5,6 +5,12 @@ body{
 	margin: 0;
 	padding: 0;
 }
+li{
+    list-style-type: none;
+}
+li a{
+    text-decoration: none;
+}
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -15,12 +21,20 @@ body{
 
 .logo-link a{
 	font-size: 20px;
-	color: white;
+	color: black;
 	margin-left: 10px;
+	text-decoration: none;
 }
+
 .logo-link{
 	font-size: 1.5rem;
 	margin: .5rem;
+  	text-decoration: none;
+  	/* font-family: monospace; */
+  	text-transform: uppercase;
+}
+.logo-link li{
+	display: inline-block;
 }
 
 .search-profile{
@@ -33,7 +47,7 @@ body{
 .logo-link img{
 	height: 50px;
 	width: 50px;
-	border-radius: 50%;
+	
 }
 .navbar li{
 	list-style: none;
@@ -81,4 +95,59 @@ body{
 }
 .profile:hover img {
 	background-color: #3e8e41;
+}
+.wrapper {
+    display: flex; 
+    width: 100%;
+    padding-top: 5px;
+	position: relative;
+    margin-top: 30px;
+}
+
+#sidebar {
+    width: auto;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: whitesmoke;
+    color: black;
+    transition: all 0.3s;
+}
+
+.content{
+    display: flex;
+}
+.tallies{
+    position:relative;
+    text-align: center;
+    justify-content: center;
+}
+.table{
+    margin-left: 20px;
+    margin-right: 280px;
+    font-size: x-large;
+    border-collapse:separate;
+    border-spacing: 180px 25px;
+    padding: 20px;
+}
+#sidebar ul li{
+    padding:15px;
+    border-bottom: 1px solid rgba(240, 233, 248, 0.986);
+}
+#sidebar ul li a{
+	text-align: left;
+    color:black;
+    font-size:large;
+    display:block;
+	margin-top:10px;
+    margin-bottom: 10px;
+	padding: 20px, 20px;
+}
+#sidebar ul li:hover a{
+    color:whitesmoke;
+}
+#sidebar ul li:hover{
+    background-color: black;
 }
