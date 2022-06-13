@@ -1,0 +1,20 @@
+#myTable{
+    position:relative;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 14px;
+    border-collapse:collapse;
+    padding: 20px;
+}
+#Products{
+    position:relative;
+    text-align: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-left: 5px;
+    font-size: 14px;
+    border-collapse:collapse;
+    padding: 20px;
+}
