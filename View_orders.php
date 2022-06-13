@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>View Users</title>
+    <title>View Orders</title>
 	<!--Bootstrap CSS-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -50,45 +50,33 @@
 </div>
     <?php
     require_once("connection.php");
-   $sql="SELECT* FROM tbl_users" ; 
+    $sql="SELECT* FROM orders WHERE status='pending'" ; 
    if($result=mysqli_query($link, $sql)){
 	if(mysqli_num_rows($result) > 0){
         echo "<table class='table table-hover table-bordered' id='myTable'>";
 
         echo "<thread>" ;
             echo "<tr>";
-                echo "<th>User ID</th>";
-                echo "<th>First Name</th>";
-                echo "<th>Last Name</th>";
-                echo "<th>Email Address</th>";
-				echo "<th>User Name</th>";
-                echo "<th>Password</th>";
-                echo "<th>Role</th>";
-                echo "<th>Action</th>";
+            echo "<th>Order ID</th>";
+            echo "<th>Order Date</th>";
+            echo "<th>Order Time</th>";
+            echo "<th>Total Price</th>";
+            echo "<th>Action</th>";
             echo "</tr>";
             echo "</thread";
         while($row = mysqli_fetch_array($result)){
             echo "<tbody>";
             echo "<tr>";
-                echo "<td>" . $row['user_id'] . "</td>";
-                echo "<td>" . $row['first_name'] . "</td>";
-                echo "<td>" . $row['last_name'] . "</td>";
-                echo "<td>" . $row['email_address'] . "</td>";
-				echo "<td>" . $row['user_name'] . "</td>";
-                echo "<td>" . $row['user_password'] . "</td>";
-                echo "<td>" . $row['role'] . "</td>";
-                echo "<td><a class='btn btn-info' href=Updateuser.php?user_id=" .$row['user_id']. ">Edit</a>" . "&nbsp; <a class='btn btn-danger' id='del_user' href=Deleteuser.php?user_id=" .$row['user_id']. ">Delete</a>" . "</td>";
+                echo "<td>" . $row['order_id'] . "</td>";
+                echo "<td>" . $row['date'] . "</td>";
+                echo "<td>" . $row['time'] . "</td>";
+                echo "<td>" . $row['total_price'] . "</td>";
+                echo "<td><a class='btn btn-info' href=View_item_order.php?order_id=" .$row['order_id']. ">View Items</a>" ."&nbsp; <a class='btn btn-info' href=Delivery.php?order_id=" .$row['order_id']. ">Delivery Info</a>"  . "</td>";
             echo "</tr>";
         }
         echo "</tbody>";
         echo "</table>";
-       ?> <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-
-    </script>
-    <?php
+       
         mysqli_free_result($result);
     } else{
         echo "No records found.";

@@ -18,7 +18,7 @@ if($edit){
   echo '<script>alert("Updated successfully"); window.location.href="View_users.php"</script>';
   return true;
 }else{ 
-  echo mysqli_error();
+  echo mysqli_error($link);
 }
 
 }

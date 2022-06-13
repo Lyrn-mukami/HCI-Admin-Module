@@ -1,13 +1,36 @@
+<?php
+require("connection.php");
+
+$id= $_GET['order_id'];
+$result2=mysqli_query($link,"SELECT * FROM shippingdetails WHERE `order_id`='$id'");
+$row=mysqli_fetch_array($result2);
+if($row){
+    if(isset($_POST['send'])){
+          $sql_order=mysqli_query($link," UPDATE orders set status='completed' where `order_id`='$id' "); 
+          if($sql_order){  
+            echo '<script>alert("Order Complete"); window.location.href="View_orders.php"</script>';
+            include_once("Update_quantity.php");
+            return true;
+          }else{ 
+            echo mysqli_error($link);
+          }
+      
+      }
+}else{
+    echo '<script>alert("No shipping information available"); window.location.href="View_orders.php"</script>';
+}
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
-    <title>Add Administrator</title>
+    <title>Shipping</title>
 	<!--Bootstrap CSS-->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
-	<link rel="stylesheet" type="text/css" href="css/forms.css"> 
+    <link rel="stylesheet" type="text/css" href="css/forms.css">
 	<link rel="stylesheet" type="text/css" href="css/navbar.css">
     <link rel="shortcut icon" href="images\logo.png" type="image/x-icon">
     </head>
@@ -33,25 +56,34 @@
 			  </div>
 		</div>
 	</nav>
-	<main class="main">
+    <main class="main">
         <div class="container">
-<form action="process_admin.php" method="post" class="card" >
+<form action="" method="post" class="card" >
             <div class="card-body">
               <div class="row mb-3">
                 <div class="col-sm-3">
-                <label for="f_name" class="mb-0">First name:</label>
+                <label for="order_id" class="mb-0">Order ID:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" required id="f_name" name="first_name" placeholder="John">
+                <input type="text" class="form-control" readonly required id="order_id" name="Order_id" value="<?php echo $row['order_id']; ?>">
                 </div>
               </div>
               <hr>
               <div class="row mb-3">
                 <div class="col-sm-3">
-                <label for="l_name" class="mb-0">Last name:</label>
+                <label for="full_name" class="mb-0">Full Name:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" required id="l_name" name="last_name" placeholder="Smith">
+                <input type="text" class="form-control" readonly required id="full_name" name="Full_name" value="<?php echo $row['fullName']; ?>">
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label for="address" class="mb-0">Address:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" readonly required id="address" name="Address" value="<?php echo $row['address']; ?>">
                 </div>
               </div>
               <hr>
@@ -60,45 +92,45 @@
                 <label for="email_add" class="mb-0">Email:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="Email" class="form-control" required id="email_add" name="email_address" placeholder="jsmith@gmail.com">
+                <input type="Email" class="form-control" readonly required id="email_add" name="email_address" value="<?php echo $row['email']; ?>">
                 </div>
               </div>
               <hr>
               <div class="row mb-3">
                 <div class="col-sm-3">
-                <label for="usernme" class="mb-0">User name:</label>
+                <label for="phone_number" class="mb-0">Phone Number:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" required id="usernme" name="user_name" placeholder="Smith_John">
+                <input type="text" class="form-control" readonly required id="phone_number" name="Phone_Number" value="<?php echo $row['phoneNo']; ?>">
                 </div>
               </div>
               <hr>
               <div class="row mb-3">
                 <div class="col-sm-3">
-                <label for="pwd" class="mb-0">Password:</label>
+                <label for="city" class="mb-0">City:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="Password"  class="form-control" required id="pwd" class="pwd" name="user_password" placeholder="*******">
+                <input type="text"  class="form-control" readonly required id="city" class="City" name="user_password" value="<?php echo $row['city']; ?>">
                 </div>
               </div>
               <hr>
               <div class="row mb-3">
                 <div class="col-sm-3">
-                <label for="role" class="mb-0">Role:</label>
+                <label for="postal_code" class="mb-0">Postal Code:</label>
                 </div>
                 <div class="col-sm-9 text-secondary">
-                <input type="text" class="form-control" required id="role" name="role" value="admin" readonly>
+                <input type="text" class="form-control" readonly required id="postal_code" name="Postal_Code" value="<?php echo $row['postalCode']; ?>">
                 </div>
               </div>
               <div class="row">
                   <div class="col-sm-3"></div>
                 <div class="col-sm-9 text-secondary">
-                <input type="submit" class="btn btn-primary px-4" id="add" name="add" value="Add"> 
+                <input type="submit" class="btn btn-primary px-4" id="send" name="send" value="Complete Order"> 
                 </div>
               </div>
             </div>
 </div>
   </form>
 </main>
-    </body>
+</body>
 </html>
