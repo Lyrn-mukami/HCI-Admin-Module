@@ -77,7 +77,21 @@ else{
 		</div>
 	</nav>
 
+	<main class="content">
+    <!-- Sidebar -->
+<div class="wrapper">
+    <nav id="sidebar">
+        <ul>
+            
+            <li><a href="Add_product.php">Add Product</a></li>
+            <li><a href="Add_admin.php">Add Admin</a></li>
+            <li><a href="Product.php">View Products</a></li>
+            <li><a href="View_orders.php">View Orders</a></li>
+            <li><a href="View_users.php">View Customer Details</a></li>
+        </ul>
 
+    </nav>
+</div>
 <div class="row justify-content-center">
 <form onsubmit="onformsubmit(); " method="POST" class="mb-3" enctype="multipart/form-data" style="text-align: center;">
 	<h3>Add product</h3>
