@@ -22,7 +22,7 @@
 <nav class="navbar">
 		<div class="logo-link">
 			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
-			<li></li><a href="Dashboard.html">Home</a></li>
+			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
 			 <div class="search-container">
@@ -91,7 +91,7 @@ if ($rowcount > 0) {
 		<td><?php echo $row['product_price'] ?></td>
 		<td><?php echo $row['product_ram'] ?></td>
 		<td><?php echo $row['product_category'] ?></td>
-		<td><?php echo $row['product_image'] ?></td>
+		<td><img src='ProductImages/<?php echo $row['product_image']; ?>' width="100" height="100" ></td>
 		<td><?php echo $row['product_quantity'] ?></td>
 		
 		<td>
