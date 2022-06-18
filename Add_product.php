@@ -29,8 +29,8 @@ $price = $_POST['product_price'];
 	$sql = "INSERT INTO product (product_id, product_image, product_name, product_brand, product_ram, product_category, product_quantity, product_price) VALUES('$id', '$original_file_name', '$name', '$brand','$ram', '$category','$quantity','$price')" ;
 $result = $link->query($sql);
 if ($result) {
-	echo "Added Successfully";
-header('location:Product.php');
+	echo '<script>alert("Added Successfully"); window.location.href="Product.php"</script>';
+
 }
 else{
 			echo "Unsuccessful".mysqli_error($link);
@@ -45,6 +45,8 @@ else{
 	<title>Add Product</title>
 	 <meta charset="utf-8">
 	 <link rel="stylesheet" href="css/navbar.css">
+	 <link rel="stylesheet" type="text/css" href="css/forms.css">
+	 <link rel="stylesheet" type="text/css" href="css/product_forms.css">
 	 <link rel="shortcut icon" href="images\logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -58,7 +60,7 @@ else{
 <nav class="navbar">
 		<div class="logo-link">
 			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
-			<li></li><a href="Dashboard.html">Home</a></li>
+			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
 			 <div class="search-container">
@@ -92,22 +94,77 @@ else{
 
     </nav>
 </div>
-<div class="row justify-content-center">
-<form onsubmit="onformsubmit(); " method="POST" class="mb-3" enctype="multipart/form-data" style="text-align: center;">
+<div class="main">
+        <div class="container">
+<form onsubmit="onformsubmit(); " method="POST" class="card" enctype="multipart/form-data" style="text-align: center;">
 	<h3>Add product</h3>
-	 <div class="form-group mb-3"><input type="file" name="product_image"></div>
-	 <div class="form-group mb-3"><input type="text" name='product_name'  placeholder="Enter Product name"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_brand' placeholder="Enter Product brand"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_ram' placeholder="Enter Product RAM"/><br></div>
-	 <div class="form-group mb-3"><input type="" name='product_category' placeholder="Enter Product category"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name="product_quantity" placeholder="Enter Product quantity"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_price' placeholder="Enter Product price" /><br></div>
-	 
-	 <div class="mb-3"><input type="submit" name="submit" value="ADD"></div>
-
-</form>
+<div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Product Image</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                <input type="file" class="form-control" name="product_image">
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Name:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_name' class="form-control" placeholder="Enter Product name"/></div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Brand:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_brand' class="form-control" placeholder="Enter Product brand"/></div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">RAM:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_ram' class="form-control" placeholder="Enter Product RAM"/></div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Category:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_category' class="form-control" placeholder="Enter Product category"/></div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Quantity:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name="product_quantity" class="form-control" placeholder="Enter Product quantity"/></div>
+              </div>
+			  <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Price:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_price' class="form-control" placeholder="Enter Product price" /></div>
+              <div class="row">
+                  <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+					<br>
+                <input type="submit" class="btn btn-primary px-4" name="submit" value="Add"> 
+                </div>
+              </div>
+            </div>
 </div>
-
-
+  </form>
+</div>
+</div>
 </body>
 </html>

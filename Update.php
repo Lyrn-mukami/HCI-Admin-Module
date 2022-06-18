@@ -4,7 +4,7 @@ require_once("Connection.php");
 $id = $_GET['update'];
 if (isset($_POST['submit'])) {
 // items to be posted
-$image = $_POST['product_image'];
+$file = $_FILES['product_image'];
 $name = $_POST['product_name'];
 $brand = $_POST['product_brand'];
 $ram = $_POST['product_ram'];
@@ -12,8 +12,26 @@ $category = $_POST['product_category'];
 $quantity = $_POST['product_quantity'];
 $price = $_POST['product_price'];
 
-$sqlUpdate = "UPDATE product SET product_id='$id',product_image='$image',product_name='$name',product_brand='$brand',product_ram='$ram',product_category='$category',product_quantity='$quantity',product_price='$price' where product_id = '$id' " ;
-$result = $link->query($sqlUpdate);
+
+
+$file_path = "ProductImages/";
+
+$original_file_name= $_FILES['product_image']['name'];
+
+$file_tmp_location = $_FILES['product_image']['tmp_name'];
+
+$file_type = substr($original_file_name,strpos($original_file_name,'.'),strlen($original_file_name));
+
+if  (!empty($_FILES["product_image"]["name"])){
+	$sqlUpdate = "UPDATE product SET product_id='$id',product_image='$original_file_name',product_name='$name',product_brand='$brand',product_ram='$ram',product_category='$category',product_quantity='$quantity',product_price='$price' where product_id = '$id' " ;
+	$result = $link->query($sqlUpdate);
+}else{
+	$sqlUpdate2 = "UPDATE product SET product_id='$id',product_name='$name',product_brand='$brand',product_ram='$ram',product_category='$category',product_quantity='$quantity',product_price='$price' where product_id = '$id' " ;
+	$result = $link->query($sqlUpdate2);
+}
+
+
+
 
 if ($result) {
 	echo "Updated Successfully";
@@ -45,9 +63,12 @@ if ($rowcount==1){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CRUD functionality</title>
+	<title>Update Product</title>
 	 <meta charset="utf-8">
-	 <link rel="stylesheet" href="style1.css">
+	 <link rel="stylesheet" href="css/navbar.css">
+	 <link rel="stylesheet" type="text/css" href="css/forms.css">
+	 <link rel="stylesheet" type="text/css" href="css/product_forms.css">
+	 <link rel="shortcut icon" href="images\logo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
@@ -55,22 +76,111 @@ if ($rowcount==1){
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
+<nav class="navbar">
+		<div class="logo-link">
+			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
+			<li></li><a href="Dashboard.php">Home</a></li>
+		</div>
+		<div class="search-profile">
+			 <div class="search-container">
+			    <form action="/action_page.php">
+			      <input type="text" placeholder="Search.." name="search">
+			      <button type="submit"><i class="fa fa-search"></i></button>
+			    </form>
+			  </div>
+			  <div class="profile">
+			  <img src="Profile_images/avatar_1.png">
+			  <div class="dropdown-content">
+			  	<a href="Profile.html">Profile</a>
+			  	<a href="#">Log out</a>
+			  </div>
+			  </div>
+		</div>
+	</nav>
 
+	<main class="content">
+    <!-- Sidebar -->
+<div class="wrapper">
+    <nav id="sidebar">
+        <ul>
+            
+            <li><a href="Add_product.php">Add Product</a></li>
+            <li><a href="Add_admin.php">Add Admin</a></li>
+            <li><a href="Product.php">View Products</a></li>
+            <li><a href="View_orders.php">View Orders</a></li>
+            <li><a href="View_users.php">View Customer Details</a></li>
+        </ul>
 
-<div class="row justify-content-center">
-<form onsubmit="onformsubmit(); " method="POST" class="mb-3" enctype="multipart/form-data" style="text-align: center;">
+    </nav>
+</div>
+<div class="main">
+        <div class="container">
+
+<form onsubmit="onformsubmit(); " method="POST" class="card" enctype="multipart/form-data" style="text-align: center;">
 	<h3>Update product</h3>
-	 <div class="form-group mb-3"><input type="file" name="product_image"></div>
-	 <div class="form-group mb-3"><input type="text" name='product_name' value="<?php echo $disp_name?>" /><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_brand' value="<?php echo $disp_brand?>" /><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_ram' value="<?php echo $disp_ram?>"/><br></div>
-	 <div class="form-group mb-3"><input type="" name='product_category' value="<?php echo $disp_category?>"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name="product_quantity" value="<?php echo $disp_quantity?>"/><br></div>
-	 <div class="form-group mb-3"><input type="text" name='product_price' value="<?php echo $disp_price?>"/><br></div>
-	 
-	 <div class="mb-3"><input type="submit" name="submit" value="UPDATE"></div>
-
-</form>
+	<div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Product Image</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                <input type="file" class="form-control" name="product_image">
+                </div>
+              </div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Name:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_name' class="form-control" value="<?php echo $disp_name?>" />
+				</div>
+			</div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Brand:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_brand' class="form-control" value="<?php echo $disp_brand?>" /></div></div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">RAM:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_ram' class="form-control" value="<?php echo $disp_ram?>"/></div></div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Category:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_category' class="form-control" value="<?php echo $disp_category?>"/></div></div>
+              <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Quantity:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name="product_quantity" class="form-control" value="<?php echo $disp_quantity?>"/></div></div>
+			  <hr>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                <label class="mb-0">Price:</label>
+                </div>
+                <div class="col-sm-9 text-secondary">
+				<input type="text" name='product_price' class="form-control" value="<?php echo $disp_price?>"/></div></div>
+                  <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+					<br>
+                <input type="submit" class="btn btn-primary px-4" name="submit" value="Update"> 
+                </div>
+              </div>
+            </div>
+</div>
+  </form>
+</div>
 </div>
 
 
