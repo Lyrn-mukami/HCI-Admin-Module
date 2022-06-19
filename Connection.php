@@ -1,6 +1,6 @@
 <?php
 
-	$link = new mysqli("localhost","Mnjambi","YouarelovedbyGod0","hci");
+	$link = new mysqli("localhost","root","","hci");
 	if ($link->connect_error){
 		die("Connection Failed" . $conn->connect_error);
 	}
