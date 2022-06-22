@@ -1,6 +1,7 @@
 <?php
 
 	$link = new mysqli("localhost","root","","yesgadgets");
+
 	if ($link->connect_error){
 		die("Connection Failed" . $conn->connect_error);
 	}
