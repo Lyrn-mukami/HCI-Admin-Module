@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2022 at 08:59 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Jun 19, 2022 at 10:09 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yesgadgets`
+-- Database: `hci`
 --
 
 -- --------------------------------------------------------
@@ -71,15 +71,15 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `date`, `time`, `total_price`, `status`) VALUES
-(1, '2022-05-14', '14:58:01', 5999, 'completed'),
+(1, '2022-05-14', '14:58:01', 5999, 'pending'),
 (2, '2022-05-14', '15:15:52', 15000, 'pending'),
-(3, '2022-05-14', '15:25:43', 92500, 'completed'),
+(3, '2022-05-14', '15:25:43', 92500, 'pending'),
 (4, '2022-05-16', '21:45:49', 45000, 'pending'),
-(5, '2022-05-18', '07:15:36', 48000, 'completed'),
+(5, '2022-05-18', '07:15:36', 48000, 'pending'),
 (6, '2022-05-18', '16:04:33', 90000, 'pending'),
 (7, '2022-05-18', '16:08:46', 157500, 'pending'),
-(8, '2022-05-25', '13:17:27', 10000, 'completed'),
-(9, '2022-05-25', '13:59:34', 45000, 'pending'),
+(8, '2022-05-25', '13:17:27', 10000, 'pending'),
+(9, '2022-05-25', '13:59:34', 45000, 'completed'),
 (10, '2022-06-02', '09:20:22', 11499, 'pending');
 
 -- --------------------------------------------------------
@@ -105,20 +105,18 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`product_id`, `product_name`, `product_brand`, `product_price`, `product_ram`, `product_category`, `product_image`, `product_quantity`, `product_status`) VALUES
-(1, 's22 ultra', 'samsung', '22500.00', '4', 'phone', 's22 ultra12gb.jpg', 4, '1'),
-(2, '\r\nInfinix Hot S3 (Sandstone Black, 32 GB)  (3 GB RAM)', 'Infinix', '8999.00', '3', 'phone', 'image-2.jpeg', 5, '1'),
-(3, 'tablet s8', 'Samsung', '15000.00', '4', 'Laptop', 'image-3.jpeg', 3, '1'),
+(1, 's22 ultra', 'samsung', '22500.00', '4', 'phone', 's22 ultra12gb.jpg', 10, '1'),
+(2, '\r\nInfinix Hot S3 (Sandstone Black, 32 GB)  (3 GB RAM)', 'Infinix', '8999.00', '3', 'phone', 'image-2.jpeg', 10, '1'),
+(3, 'tablet s8', 'Samsung', '15000.00', '4', 'Laptop', 'image-3.jpeg', 10, '1'),
 (4, 'Mac S14', 'Apple', '24000.00', '3', 'laptop', 'mac14.jpg', 10, '1'),
-(5, 'Lg 42 inch ', 'Lg', '47000.00', '3', 'Television', 'N01.jpg', 2, '1'),
+(5, 'Lg 42 inch ', 'Lg', '47000.00', '3', 'Television', 'N01.jpg', 10, '1'),
 (6, 'Redmi wrist band', 'xioami', '2500.00', '3', 'smartwatch', 'redmiwatch.jpg', 10, '1'),
 (7, 'Oppo wrist watch band', 'oppo', '2500.00', '2', 'smartwatch', 'oppob.jpg', 10, '1'),
-(8, 'pova a2', 'Nokia', '5999.00', '1', 'phone', 'pova2.jpg', 5, '1'),
-(9, 'OPPO F5 (Black, 64 GB)  (6 GB RAM)', 'OPPO', '19990.00', '6', 'phone', 'image-9.jpeg', 2, '1'),
+(8, 'pova a2', 'Nokia', '5999.00', '1', 'phone', 'pova2.jpg', 10, '1'),
+(9, 'OPPO F5 (Black, 64 GB)  (6 GB RAM)', 'OPPO', '19990.00', '6', 'phone', 'image-9.jpeg', 10, '1'),
 (10, 'harman speaker', 'speaker', '2000.00', '3', 'speaker', 'harman.jpg', 10, '1'),
-(12, 'Galaxy A0', 'Galaxy', '10999.00', '3', 'Phone', 'GA0.jpg', 1, '1'),
-(14, 'xioami airdots', 'xioami', '3000.00', '4', 'earpods', 'xiamiairdots.jpg', 10, '1'),
-(16, 'Philip Tate', 'Dolores ', '87.00', '6', 'Praesentium', 'IMG_20200616_223047_545.jpg', 436, '0'),
-(17, 'Isabella Sears', 'Dolor ', '956.00', '6', 'Aut error ', 'IMG_20200703_110351_870.jpg', 768, '0');
+(12, 'Galaxy A0', 'Galaxy', '10999.00', '3', 'Phone', 'GA0.jpg', 10, '1'),
+(14, 'xioami airdots', 'xioami', '3000.00', '4', 'earpods', 'xiomiairdots.jpg', 10, '1');
 
 -- --------------------------------------------------------
 
@@ -167,7 +165,7 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`user_id`, `first_name`, `last_name`, `email_address`, `user_name`, `user_password`, `role`) VALUES
-(1, 'Cindy', 'Guii', 'hudson@gmail.com', 'nat', '124455', 'client'),
+(1, 'Nat', 'Talie', 'nat@gmail.com', 'nat', '124455', 'client'),
 (2, 'n', 'nnm', 'ccv@gmail.com', 'hh', 'hhh', 'client'),
 (3, 'b', 'b', 'b@gmail.com', 'client', 'qw', 'client'),
 (7, 'Billy', 'Goat', 'billgt@gmail.com', 'BillyGoat', 'Billyboy', 'admin'),
