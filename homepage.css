@@ -1,0 +1,179 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.fixed-navbar{
+  width: 100%;
+  overflow: hidden;
+  height: 70px;
+  line-height: 70px;
+  background: fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: whitesmoke;
+}
+.fixed-navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 18px;
+  margin-right: 16px;
+  font-size: 15px;
+  font-family: monospace;
+}
+.logo{
+  width: 90px;
+  float: left;
+
+}
+/*this is forthe ul tag*/
+.Taskbar{
+  float: left;
+}
+.Taskbar_2{
+  float: right;
+
+}
+.Taskbar li{
+  float: left;
+  width: 120px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  list-style: none;
+
+}
+.Taskbar li a{
+  color: skyblue;
+  text-decoration: none;
+  font-family: monospace;
+  text-transform: uppercase;
+  display: block;
+
+}
+.Taskbar li:hover{
+  background: #dc3545;
+}
+.Taskbar li a:hover{
+  color: yellowgreen;
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+* {
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+
+.slide-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.slide-container .slide {
+  display: none;
+  width: 100%;
+}
+
+.slide-container .slide.fade {
+  animation: fade 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+.slide-container .slide img {
+  width: 100%;
+}
+.slide-container .prev,
+.slide-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.slide-container .prev:hover,
+.slide-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.slide-container .prev {
+  left: 2px;
+}
+
+.slide-container .next {
+  right: 2px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: blanchedalmond;
+    font-size: 20px;
+    font-family: monospace;
+  }
+  
+  .btn{
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 8px 30px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+
+}
+.btn:hover{
+  background: #563434;
+}
+  
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.dots-container .dot {
+  cursor: pointer;
+  margin: 5px;
+  width: 20px;
+  height: 20px;
+  color: #333;
+  border-radius: 50%;
+  background-color: #dfd6ce;
+}
+
+.dots-container .dot.active {
+  border: 2px solid green;
+}

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.fixed-navbar{
+  width: 100%;
+  overflow: hidden;
+  height: 70px;
+  line-height: 70px;
+  background: fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: whitesmoke;
+  margin-bottom: 100px;
+}
+.fixed-navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 18px;
+  margin-right: 16px;
+  font-size: 15px;
+  font-family: monospace;
+}
+.logo{
+  width: 90px;
+  float: left;
+
+}
+/*this is forthe ul tag*/
+.Taskbar{
+  float: left;
+}
+.Taskbar_2{
+  float: right;
+
+}
+.Taskbar li{
+  float: left;
+  width: 120px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  list-style: none;
+
+}
+.Taskbar li a{
+  color: skyblue;
+  text-decoration: none;
+  font-family: monospace;
+  text-transform: uppercase;
+  display: block;
+
+}
+.Taskbar li:hover{
+  background: #dc3545;
+}
+.Taskbar li a:hover{
+  color: yellowgreen;
+}
+
+
+.orderContainer{
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  height: fit-content;
+  background: whitesmoke;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: fit-content;
+  margin-top: 100px;
+}
+
+.shippingDetails{
+  margin: auto;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+  padding:25px;
+  height: fit-content;
+  background: whitesmoke;
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 770px;
+}
+.shippingDetails h3{
+  text-align: center;
+}
+
+.subtotal{
+  font-weight: bold;
+}
+
+.confirmButton{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin: auto;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding: 15px;
+  width: fit-content;
+  
+
+}
