@@ -1,4 +1,5 @@
-<?php require("connection.php"); ?>
+<?php require("connection.php"); 
+session_start()?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,8 +30,8 @@
 			  <div class="profile">
 			  <img src="Profile_images/avatar_1.png">
 			  <div class="dropdown-content">
-			  	<a href="Profile.html">Profile</a>
-			  	<a href="#">Log out</a>
+			  	<a href="Profile.php">Profile</a>
+			  	<a href="logout.php">Log out</a>
 			  </div>
 			  </div>
 		</div>
