@@ -1,0 +1,93 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fontawesome.com/v4/icons/');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins" , sans-serif;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.container{
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  padding: 40px 40px;
+  perspective: 2500px;
+}
+.container .forms{
+  height: 100%;
+  width: 100%;
+
+}
+.container .form-content{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+.forms .form-content .title{
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: black;
+}
+.forms .form-content .title:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background: red;
+}
+.forms .form-content .input-boxes{
+  margin-top: 30px;
+}
+.forms .form-content .input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+.form-content .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+.form-content .input-box input:focus,
+.form-content .input-box input:valid{
+  border-color: #7d2ae8;
+}
+.form-content .input-box i{
+  position: absolute;
+  color: royalblue;
+  font-size: 15px;
+}
+.forms .form-content .text{
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+}
+div i{
+  padding-left: 10px;
+}
+div a{
+  color: white;
+  text-decoration: none;
+}
+div a:hover{
+  color: black;
+}
