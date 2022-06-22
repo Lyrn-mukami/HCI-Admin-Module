@@ -18,17 +18,11 @@
 			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
-			 <div class="search-container">
-			    <form action="/action_page.php">
-			      <input type="text" placeholder="Search.." name="search">
-			      <button type="submit"><i class="fa fa-search"></i></button>
-			    </form>
-			  </div>
-			  <div class="profile">
+			 			  <div class="profile">
 			  <img src="Profile_images/avatar_1.png">
 			  <div class="dropdown-content">
 			  	<a href="Profile.html">Profile</a>
-			  	<a href="#">Log out</a>
+			  	<a href="logout.php">Log out</a>
 			  </div>
 			  </div>
 		</div>

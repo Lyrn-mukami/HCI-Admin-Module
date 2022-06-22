@@ -2,8 +2,8 @@
 	box-sizing: border-box;
 }
 body{
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 }
 li{
     list-style-type: none;
@@ -50,51 +50,11 @@ li a{
 #sidebar ul li:hover{
     background-color: black;
 }
-.content{
-    display: flex;
+.container{
+    
+    margin: 30px;
+    height: 100%;
 }
-.card {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.322), 0 1px 2px 0 rgba(0,0,0,.06);
-}
-
-.card {
-    position: relative;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
-
-.card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
-}
-
-.gutters-sm {
-    margin-right: -8px;
-    margin-left: -8px;
-}
-
-.gutters-sm>.col, .gutters-sm>[class*=col-] {
-    padding-right: 8px;
-    padding-left: 8px;
-}
-.mb-3, .my-3 {
-    margin-bottom: 1rem!important;
-}
-
-.bg-gray-300 {
-    background-color: #e2e8f0;
-}
-.h-100 {
-    height: 100%!important;
-}
-.row{
-    margin-top: 180px;
+.container .row{
+    margin-bottom: 30px;
 }

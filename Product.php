@@ -19,23 +19,18 @@
 
 </head>
 <body>
-<nav class="navbar">
+<nav class="navbar fixed-top navbar-default navbar-fixed-top" id="navbar">
 		<div class="logo-link">
 			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
 			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
-			 <div class="search-container">
-			    <form action="/action_page.php">
-			      <input type="text" placeholder="Search.." name="search">
-			      <button type="submit"><i class="fa fa-search"></i></button>
-			    </form>
-			  </div>
+			
 			  <div class="profile">
 			  <img src="Profile_images/avatar_1.png">
 			  <div class="dropdown-content">
 			  	<a href="Profile.html">Profile</a>
-			  	<a href="#">Log out</a>
+			  	<a href="logout.php">Log out</a>
 			  </div>
 			  </div>
 		</div>
@@ -56,8 +51,8 @@
     </nav>
 </div>
 <!-- <button class="btn btn-primary my-4" ><a href="Add_product.php " class="text-light">Add product</a> </button> -->
-<div>
-	<table id="Products" class="table table-striped">
+<div style="margin-left: -40px; margin-top: 60px;">
+	<table id="Products" class="table table-hover table-bordered">
 		<thead>
 		<tr>
 			<th>ID</th>
@@ -108,5 +103,19 @@ else {
 </table>
 </div>
 </main>
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
 </body>
 </html>

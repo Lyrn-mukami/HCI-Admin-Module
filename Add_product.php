@@ -16,18 +16,23 @@ $file_tmp_location = $_FILES['product_image']['tmp_name'];
 
 $file_type = substr($original_file_name,strpos($original_file_name,'.'),strlen($original_file_name));
 
-// items to be posted
++$select="SELECT * FROM product where product_name= '$name'";
+$result=$link->query($select);
+$num=mysqli_num_rows($result);
+if($num==1)
+{
+    echo" <h2>product already exists</h2>";
+}
+else{
+	if(move_uploaded_file($file_tmp_location, $file_path.$original_file_name)){
+		$brand = $_POST['product_brand'];
+		$ram = $_POST['product_ram'];
+		$category = $_POST['product_category'];
+		$quantity = $_POST['product_quantity'];
+		$price = $_POST['product_price'];
+	$sql = "INSERT INTO product(product_name,product_brand, product_price,product_ram, product_category,product_image,product_quantity)VALUES('$name','$brand','$price','$ram','$category','$original_file_name','$quantity')" ;
 
-$name = $_POST['product_name'];
-$brand = $_POST['product_brand'];
-$ram = $_POST['product_ram'];
-$category = $_POST['product_category'];
-$quantity = $_POST['product_quantity'];
-$price = $_POST['product_price'];
-
-
-	$sql = "INSERT INTO product (product_id, product_image, product_name, product_brand, product_ram, product_category, product_quantity, product_price) VALUES('$id', '$original_file_name', '$name', '$brand','$ram', '$category','$quantity','$price')" ;
-$result = $link->query($sql);
+	$result = $link->query($sql);
 if ($result) {
 	echo '<script>alert("Added Successfully"); window.location.href="Product.php"</script>';
 
@@ -36,8 +41,9 @@ else{
 			echo "Unsuccessful".mysqli_error($link);
 		}
 
+	}
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,23 +63,18 @@ else{
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav class="navbar">
+<nav class="navbar fixed-top navbar-default navbar-fixed-top">
 		<div class="logo-link">
 			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
 			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
-			 <div class="search-container">
-			    <form action="/action_page.php">
-			      <input type="text" placeholder="Search.." name="search">
-			      <button type="submit"><i class="fa fa-search"></i></button>
-			    </form>
-			  </div>
+			
 			  <div class="profile">
 			  <img src="Profile_images/avatar_1.png">
 			  <div class="dropdown-content">
 			  	<a href="Profile.html">Profile</a>
-			  	<a href="#">Log out</a>
+			  	<a href="logout.php">Log out</a>
 			  </div>
 			  </div>
 		</div>
@@ -94,7 +95,7 @@ else{
 
     </nav>
 </div>
-<div class="main">
+<div class="main" style="margin-top: 60px;">
         <div class="container">
 <form onsubmit="onformsubmit(); " method="POST" class="card" enctype="multipart/form-data" style="text-align: center;">
 	<h3>Add product</h3>

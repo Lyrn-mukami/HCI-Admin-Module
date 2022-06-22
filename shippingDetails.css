@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.fixed-navbar{
+  width: 100%;
+  overflow: hidden;
+  height: 70px;
+  line-height: 70px;
+  background: fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: whitesmoke;
+}
+.fixed-navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 18px;
+  margin-right: 16px;
+  font-size: 15px;
+  font-family: monospace;
+}
+.logo{
+  width: 90px;
+  float: left;
+
+}
+/*this is forthe ul tag*/
+.Taskbar{
+  float: left;
+}
+.Taskbar_2{
+  float: right;
+
+}
+.Taskbar li{
+  float: left;
+  width: 120px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  list-style: none;
+
+}
+.Taskbar li a{
+  color: #skyblue;
+  text-decoration: none;
+  font-family: monospace;
+  text-transform: uppercase;
+  display: block;
+
+}
+.Taskbar li:hover{
+  background: #dc3545;
+}
+.Taskbar li a:hover{
+  color: yellowgreen;
+}
+
+
+.container2{
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  min-height: 100vh;
+  background: whitesmoke;
+}
+
+
+.container2 form{
+  padding:50px;
+  width:600px;
+  background: #fff;
+  box-shadow: 10px 10px 5px darkgray;
+}
+
+.container2 form .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+.container2 form .row .col{
+  flex:1 1 250px;
+}
+
+
+.container2 form .row .col .inputBox{
+  margin:20px 40px;
+}
+
+.container2 form .row .col .inputBox span{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container2 form .row .col .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.container2 form .row .col .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.container2 form .row .col .flex{
+  display: flex;
+  gap:15px;
+}
+
+
+.container2 form .submit-btn{
+  text-align: center;
+  margin-left: 120px;
+  width: 50%;
+  padding:12px;
+  font-size: 17px;
+  color: black;
+  background: darkgray;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.container2 form .submit-btn:hover{
+  background: black;
+}
