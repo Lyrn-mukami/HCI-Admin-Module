@@ -20,7 +20,7 @@
 	<nav class="navbar">
 		<div class="logo-link">
 			<img src="images/Logo.png" class="logo" style='max-width:70px'>	
-			<li></li><a href="Dashboard.html">Home</a></li>
+			<li></li><a href="Dashboard.php">Home</a></li>
 		</div>
 		<div class="search-profile">
 			<div class="profile">
