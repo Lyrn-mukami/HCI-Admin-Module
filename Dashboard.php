@@ -56,6 +56,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div>
+								<img src="images/user.png" style="width: 50px; height: 50px;">
 								<h4 class="header-title mt-0 mb-4">Total Customers</h4>
 								<div>
 									<h2 class="fw-normal pt-2 mb-1">
@@ -78,6 +79,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div>
+								<img src="images/wallet.png" style="width: 50px; height: 50px;">
 								<h4 class="header-title mt-0 mb-4">Total Earnings</h4>
 								<div>
 									<h2 class="fw-normal pt-2 mb-1">
@@ -105,6 +107,7 @@
 					<div class="card">
 						<div class="card-body">
 							<div>
+								<img src="images/shopping-bag.png" style="width: 50px; height: 50px;">
 								<h4 class="header-title mt-0 mb-4">Completed orders</h4>
 								<div>
 									<h2 class="fw-normal pt-2 mb-1">
